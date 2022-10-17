@@ -17,6 +17,7 @@ public class HelloReceiver {
                 throw new RuntimeException(e);
             } finally {
                 System.out.println(" [ x ] DONE");
+                Config.getInstance().getDefaultChannel().queueDeclare(Config.DURABLE_QUEUE, true, false, false, null);
                 Config.getInstance().getDefaultChannel().basicAck(message.getEnvelope().getDeliveryTag(), false);
             }
         });
