@@ -17,9 +17,10 @@ public class HelloReceiver {
                 throw new RuntimeException(e);
             } finally {
                 System.out.println(" [ x ] DONE");
+                Config.getInstance().getDefaultChannel().basicAck(message.getEnvelope().getDeliveryTag(), false);
             }
         });
-        Config.getInstance().getDefaultChannel().basicConsume(Config.QUEUE_NAME, true, deliverCallback, consumerTag -> {} );
+        Config.getInstance().getDefaultChannel().basicConsume(Config.QUEUE_NAME, false, deliverCallback, consumerTag -> {} );
 
 
 
