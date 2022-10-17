@@ -15,6 +15,8 @@ public class HelloReceiver {
                 processor.doProcess(receivedMessage);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
+            } finally {
+                System.out.println(" [ x ] DONE");
             }
         });
         Config.getInstance().getDefaultChannel().basicConsume(Config.QUEUE_NAME, true, deliverCallback, consumerTag -> {} );
