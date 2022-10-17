@@ -8,6 +8,7 @@ import java.nio.charset.StandardCharsets;
 public class HelloReceiver {
     private final HelloProcessor processor = new HelloProcessor();
     public void startReceiving () throws IOException {
+        Config.getInstance().getDefaultChannel().basicQos(1);
         DeliverCallback deliverCallback = ((consumerTag, message) -> {
             String receivedMessage  = new String(message.getBody(), StandardCharsets.UTF_8);
             System.out.println(" [ x ] received ' " + receivedMessage + "'");
