@@ -5,7 +5,7 @@ public class HelloProcessor {
         System.out.println("=====> processing " + message);
         for (char ch: message.toCharArray()){
             if (ch == '.') {
-                Thread.sleep(1000);
+                Thread.sleep(1000 * 5);
                 System.out.print(".");
             }
         }
