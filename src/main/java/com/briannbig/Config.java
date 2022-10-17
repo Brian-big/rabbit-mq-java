@@ -9,6 +9,7 @@ import java.util.concurrent.TimeoutException;
 
 public class Config {
     public static final String QUEUE_NAME = "hello";
+    public static final String DURABLE_QUEUE = "task_queue";
     private static final ConnectionFactory factory = new ConnectionFactory();
     private static Config INSTANCE = null;
     private static Channel channel = null;

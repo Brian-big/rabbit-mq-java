@@ -5,13 +5,10 @@ import java.io.IOException;
 public class SenderSimulator {
     static Send sender = new Send();
     public static void main(String[] args) throws IOException {
-        for (int i = 0; i < 20; i++) {
-            try {
-                Thread.sleep(1000*5);
-                sender.send("Hello rabbit mQ : " + i );
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
-        }
+        sender.send("Lighter task ..");
+        sender.send("Light task ....");
+        sender.send("Heavy task ........");
+        sender.send("Heavier task ............");
+        sender.send("Heaviest task ...............");
     }
 }
